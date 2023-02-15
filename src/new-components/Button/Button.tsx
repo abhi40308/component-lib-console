@@ -42,6 +42,8 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
    * The button will take the maximum with possible
    */
   full?: boolean;
+
+  children?: any;
 }
 
 const buttonSizing: Record<ButtonSize, string> = {
