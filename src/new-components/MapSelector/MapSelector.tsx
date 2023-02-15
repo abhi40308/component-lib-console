@@ -71,7 +71,7 @@ export const MapSelector = ({
   };
 
   const onDeleteItem = (index: number) => {
-    onChange(existingMaps.filter((t, i) => i !== index));
+    onChange(existingMaps.filter((_, i) => i !== index));
   };
 
   useEffect(() => {
