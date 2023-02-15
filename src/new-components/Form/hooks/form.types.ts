@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  FieldValues,
-  FormProviderProps,
-  SubmitHandler,
-  UseFormProps,
-} from 'react-hook-form';
+import { FieldValues, SubmitHandler, UseFormProps } from 'react-hook-form';
 import { ZodType, ZodTypeDef, infer as ZodInfer } from 'zod';
 
 // hook props:
@@ -45,12 +40,3 @@ export type FormProps<TForm extends ZodInfer<Schema>> = {
    */
   id?: string;
 };
-
-// form wrapper props (combo of form component and FormProvider)
-export interface FormWrapperProps<
-  TFieldValues extends FieldValues,
-  TSchema extends ZodInfer<Schema>,
-  // eslint-disable-next-line
-  TContext extends object = object
-> extends FormProviderProps<TFieldValues, TContext>,
-    FormProps<TSchema> {}

@@ -2,19 +2,9 @@ import { Button } from '@/new-components/Button';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import React, { ReactElement } from 'react';
-import {
-  FieldError,
-  FieldPath,
-  useFormContext,
-  useWatch,
-} from 'react-hook-form';
+import { FieldError, useFormContext, useWatch } from 'react-hook-form';
 import { BsXCircleFill } from 'react-icons/bs';
-import { z, ZodType, ZodTypeDef } from 'zod';
 import { FieldWrapper, FieldWrapperPassThroughProps } from './FieldWrapper';
-
-type TFormValues = Record<string, unknown>;
-
-export type Schema = ZodType<TFormValues, ZodTypeDef, TFormValues>;
 
 // putting this into a standalone component so `useWatch` won't have to run even if ClearButton is not enabled.
 const ClearButton: React.VFC<{ fieldName: string; className: string }> = ({
@@ -43,63 +33,62 @@ const ClearButton: React.VFC<{ fieldName: string; className: string }> = ({
   );
 };
 
-export type InputFieldProps<T extends z.infer<Schema>> =
-  FieldWrapperPassThroughProps & {
-    /**
-     * The input field name
-     */
-    name: FieldPath<T>;
-    /**
-     * The input field type
-     */
-    type?: 'text' | 'email' | 'password' | 'number' | 'file';
-    /**
-     * The input field classes
-     */
-    className?: string;
-    /**
-     * The input field icon
-     */
-    icon?: ReactElement;
-    /**
-     * The input field icon position
-     */
-    iconPosition?: 'start' | 'end';
-    /**
-     * The input field placeholder
-     */
-    placeholder?: string;
-    /**
-     * Flag to indicate if the field is disabled
-     */
-    disabled?: boolean;
-    /**
-     * The input field prepend label
-     */
-    prependLabel?: string;
-    /**
-     * The input field append label
-     */
-    appendLabel?: string;
-    /**
-     * A callback for transforming the input onChange for things like sanitizing input
-     */
-    inputTransform?: (val: string) => string;
-    /**
-     * Render line breaks in the description
-     */
-    renderDescriptionLineBreaks?: boolean;
-    /**
-     * Renders a button to clear the input onClick
-     */
-    clearButton?: boolean;
-    /**
-     * The input field classes
-     */
-    inputClassName?: string;
-  };
+export type InputFieldProps = FieldWrapperPassThroughProps & {
+  /**
+   * The input field name
+   */
+  name: any;
+  /**
+   * The input field type
+   */
+  type?: 'text' | 'email' | 'password' | 'number' | 'file';
+  /**
+   * The input field classes
+   */
+  className?: string;
+  /**
+   * The input field icon
+   */
+  icon?: ReactElement;
+  /**
+   * The input field icon position
+   */
+  iconPosition?: 'start' | 'end';
+  /**
+   * The input field placeholder
+   */
+  placeholder?: string;
+  /**
+   * Flag to indicate if the field is disabled
+   */
+  disabled?: boolean;
+  /**
+   * The input field prepend label
+   */
+  prependLabel?: string;
+  /**
+   * The input field append label
+   */
+  appendLabel?: string;
+  /**
+   * A callback for transforming the input onChange for things like sanitizing input
+   */
+  inputTransform?: (val: string) => string;
+  /**
+   * Render line breaks in the description
+   */
+  renderDescriptionLineBreaks?: boolean;
+  /**
+   * Renders a button to clear the input onClick
+   */
+  clearButton?: boolean;
+  /**
+   * The input field classes
+   */
+  inputClassName?: string;
+};
 
-export const InputField = <T extends z.infer<Schema>>({
+export const InputField = ({
   type = 'text',
   name,
   icon,
@@ -114,11 +103,11 @@ export const InputField = <T extends z.infer<Schema>>({
   clearButton,
   inputClassName,
   ...wrapperProps
-}: InputFieldProps<T>) => {
+}: InputFieldProps) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext<T>();
+  } = useFormContext();
 
   const maybeError = get(errors, name) as FieldError | undefined;
 
@@ -126,7 +115,7 @@ export const InputField = <T extends z.infer<Schema>>({
   const showInputEndContainer = clearButton || (iconPosition === 'end' && icon);
 
   const onInputChange = React.useCallback(
-    async event => {
+    async (event: any) => {
       if (event.target.files?.[0]) {
         onChange(event);
       }
