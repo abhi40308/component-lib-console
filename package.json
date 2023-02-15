@@ -20,7 +20,32 @@
         "analyze": "size-limit --why"
     },
     "peerDependencies": {
-        "react": ">=16"
+        "@radix-ui/react-checkbox": "1.0.1",
+        "@radix-ui/react-collapsible": "^1.0.0",
+        "@radix-ui/react-dialog": "^1.0.0",
+        "@radix-ui/react-dropdown-menu": "^1.0.0",
+        "@radix-ui/react-radio-group": "^1.1.1",
+        "@radix-ui/react-switch": "^1.0.0",
+        "@radix-ui/react-tabs": "^1.0.0",
+        "@radix-ui/react-tooltip": "^1.0.0",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/jest": "^0.0.10",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "clsx": "^1.2.1",
+        "deepmerge-ts": "^4.3.0",
+        "react": ">=16",
+        "react-ace": "10.0.0",
+        "react-dom": "17.0.2",
+        "react-hook-form": "^7.43.1",
+        "react-hot-toast": "2.4.0",
+        "react-icons": "^4.7.1",
+        "react-loading-skeleton": "^3.1.1",
+        "react-scripts": "5.0.1",
+        "storybook": "^6.5.16",
+        "tailwindcss": "^3.2.6",
+        "web-vitals": "^2.1.4",
+        "zod": "^3.20.6"
     },
     "husky": {
         "hooks": {
@@ -48,14 +73,19 @@
     ],
     "devDependencies": {
         "@size-limit/preset-small-lib": "^8.2.4",
+        "@types/lodash.get": "^4.4.7",
         "@types/react": "^18.0.28",
         "@types/react-dom": "^18.0.11",
+        "@types/uuid": "^9.0.0",
         "husky": "^8.0.3",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
+        "react": "17.0.0",
+        "react-dom": "17.0.0",
         "size-limit": "^8.2.4",
         "tsdx": "^0.14.1",
         "tslib": "^2.5.0",
         "typescript": "^3.9.10"
+    },
+    "dependencies": {
+        "uuid": "^9.0.0"
     }
 }

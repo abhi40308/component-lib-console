@@ -1,4 +1,4 @@
-import React, { ReactText } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import { FieldError, useFormContext, Controller } from 'react-hook-form';
@@ -6,8 +6,8 @@ import { FieldWrapper, FieldWrapperPassThroughProps } from './FieldWrapper';
 import { Checkbox } from './Checkbox';
 
 export type CheckboxItem = {
-  label: ReactText;
-  value: ReactText;
+  label: string | number;
+  value: string | number;
   disabled?: boolean;
 };
 
@@ -34,7 +34,7 @@ export type CheckboxProps = FieldWrapperPassThroughProps & {
   noErrorPlaceholder?: boolean;
 };
 
-export const CheckboxesField: React.FC<CheckboxProps> = ({
+export const CheckboxesField = ({
   name,
   options = [],
   orientation = 'vertical',
