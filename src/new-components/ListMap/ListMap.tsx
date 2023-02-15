@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { FaPlusCircle } from 'react-icons/fa';
 import { useFormContext } from 'react-hook-form';
-import { Button } from '@/new-components/Button';
+import { Button } from '../Button';
 import clsx from 'clsx';
 import { BsArrowRight } from 'react-icons/bs';
 import { Select } from './Select';
@@ -76,10 +76,10 @@ export const ListMap = (props: Props) => {
   const formContext = useFormContext();
 
   const mapping = formContext.watch(name);
-  const initValue = React.useMemo(
-    () => props.value ?? mapping ?? {},
-    [props, mapping]
-  );
+  const initValue = React.useMemo(() => props.value ?? mapping ?? {}, [
+    props,
+    mapping,
+  ]);
 
   const [localMaps, setLocalMaps] = useState<{ from: string; to: string }[]>(
     initLocalMaps(initValue)

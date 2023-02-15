@@ -1,4 +1,4 @@
-import { IconTooltip } from '@/new-components/Tooltip';
+import { IconTooltip } from '../Tooltip';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import React from 'react';
