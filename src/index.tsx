@@ -22,7 +22,6 @@ export * from './new-components/LearnMoreLink';
 export * from './new-components/LinkBlock';
 export * from './new-components/ListMap';
 export * from './new-components/MapSelector';
-export * from './new-components/RequestHeadersSelector';
 export * from './new-components/Switch';
 export * from './new-components/Tabs';
 export * from './new-components/Toasts';
